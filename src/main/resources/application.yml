@@ -2,9 +2,9 @@ spring:
   application:
     name: claim
   datasource:
-    url: jdbc:postgresql://localhost:5433/claimdb
-    password: postgres
-    username: postgres
+    url: jdbc:postgresql://${POSTGRES_URL:localhost:5433}/claimdb
+    password: ${POSTGRES_PASS:postgres}
+    username: ${POSTGRES_USER:postgres}
   cloud:
     function:
       definition: createClaim;createShipment;updateClaim;shipmentUpdate;
@@ -19,7 +19,7 @@ spring:
             autoCommitOnError: true
             autoCommitOffset: true
         binder:
-          brokers: localhost:9092
+          brokers: ${KAFKA_BROKER:localhost:9092}
           minPartitionCount: 4
           autoAddPartitions: true
           consumerProperties:
