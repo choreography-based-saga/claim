@@ -2,7 +2,7 @@ spring:
   application:
     name: claim
   datasource:
-    url: jdbc:postgresql://${POSTGRES_URL:localhost:5433}/claimdb
+    url: jdbc:postgresql://${POSTGRES_URL:localhost:5433/claimdb}
     password: ${POSTGRES_PASS:postgres}
     username: ${POSTGRES_USER:postgres}
   cloud:
